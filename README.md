@@ -10,7 +10,7 @@ An intelligent PDF analysis tool powered by LangChain and Streamlit that lets yo
 - 🔍 Semantic search and document retrieval
 - 💬 Natural language Q&A with uploaded documents
 - 🎨 Custom dark-mode Streamlit UI
-- 🧠 Powered by Mistral AI via OpenRouter (or local Ollama models)
+- 🧠 Powered by Mistral AI (official API) (or local Ollama models)
 - 📝 Context-aware answers with document citations
 
 ---
@@ -27,7 +27,7 @@ An intelligent PDF analysis tool powered by LangChain and Streamlit that lets yo
 
 - **LangChain** - Document processing and AI orchestration
 - **Streamlit** - Web interface
-- **OpenRouter/Mistral** - AI model backend (or Ollama for local)
+- **Mistral AI** - AI model backend (or Ollama for local)
 - **HuggingFace Embeddings** - Document vectorization
 - **PDFPlumber** - PDF text extraction
 - **Python** - Backend logic
@@ -55,9 +55,9 @@ pip install -r requirements.txt
 ```
 
 ### 4. Set Up API Keys
-Create a `.env` file with your OpenRouter API key:
+Create a `.env` file with your Mistral API key:
 ```env
-OPENROUTER_API_KEY=your_api_key_here
+MISTRAL_API_KEY=your_api_key_here
 ```
 
 ### 5. Run the Application
@@ -88,14 +88,14 @@ streamlit run app.py
 
 ## 🔄 Alternative: Local Ollama Setup
 
-To run with local models instead of OpenRouter:
+To run with local models instead of Mistral AI:
 
 1. Install [Ollama](https://ollama.com/)
 2. Pull a compatible model:
 ```bash
 ollama pull mistral
 ```
-3. Modify `helper.py` to use Ollama instead of OpenRouter
+3. Modify `helper.py` to use Ollama instead of Mistral AI
 
 ---
 

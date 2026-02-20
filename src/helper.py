@@ -2,7 +2,7 @@ from langchain_community.document_loaders import PDFPlumberLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+from langchain_mistralai import ChatMistralAI
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from pydantic import SecretStr
 from dotenv import load_dotenv
@@ -11,9 +11,9 @@ import os
 
 load_dotenv()
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-if OPENROUTER_API_KEY is None:
-    raise ValueError("❌ OPENROUTER_API_KEY is not set in the environment!")
+MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
+if MISTRAL_API_KEY is None:
+    raise ValueError("❌ MISTRAL_API_KEY is not set in the environment!")
 
 
 
@@ -28,10 +28,9 @@ def load_embedding_model():
 DOCUMENT_VECTOR_DB = InMemoryVectorStore(load_embedding_model())
 
 
-LANGUAGE_MODEL = ChatOpenAI(
-    api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1",
-    model="mistralai/mistral-small-3.2-24b-instruct"
+LANGUAGE_MODEL = ChatMistralAI(
+    api_key=SecretStr(MISTRAL_API_KEY),
+    model="mistral-small-latest"
 )
 
 def save_uploaded_file(uploaded_file):

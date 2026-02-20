@@ -2,5 +2,5 @@ streamlit
 langchain_core
 langchain_community
 pdfplumber
-langchain-openai
+langchain-mistralai
 sentence-transformers 
